@@ -27,7 +27,7 @@ CACHE_DIR=$2
 ENV_DIR=$3
 BUILDPACK_DIR="$(dirname "$(dirname "$0")")"
 
-### Load Dependencies
+# load dependencies
 source "$BUILDPACK_DIR/lib/environment.sh"
 
 BUILDPACK_VARIABLES="TAILSCALE_VERSION"
