@@ -55,6 +55,6 @@ chmod +x "$BUILD_DIR/.heroku/tailscale/bin/heroku-tailscale-start.sh"
 chmod +x "$BUILD_DIR/.heroku/tailscale/bin/heroku-tailscale-test.sh"
 
 mkdir -p $BUILD_DIR/.profile.d 2>&1 | indent
-rm -f $BUILD_DIR/.profile.d/heroku-tailscale-buildpack.sh 2>&1 | indent
+rm -f $BUILD_DIR/.profile.d/heroku-buildpack-tailscale.sh 2>&1 | indent
 echo 'export PATH="/app/.heroku/tailscale/bin:$PATH"' >> $BUILD_DIR/.profile.d/heroku-buildpack-tailscale.sh 2>&1 | indent
 echo "/app/.heroku/tailscale/bin/heroku-tailscale-start.sh" >> $BUILD_DIR/.profile.d/heroku-buildpack-tailscale.sh 2>&1 | indent

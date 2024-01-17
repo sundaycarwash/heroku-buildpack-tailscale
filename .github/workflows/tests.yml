@@ -10,17 +10,17 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: run smoke tests
-      run: bash run_tests.sh
+      - uses: actions/checkout@v3
+      - name: run smoke tests
+        run: bash run_tests.sh
   test-stack:
     strategy:
       matrix:
         stack: [heroku-18, heroku-20, heroku-22]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: run stack test
-      run: bash test/stack-test.sh ${{ matrix.stack }}
-      env:
-        TAILSCALE_TEST_AUTH_KEY: ${{ secrets.TAILSCALE_TEST_AUTH_KEY }}
+      - uses: actions/checkout@v3
+      - name: run stack test
+        run: bash test/stack-test.sh ${{ matrix.stack }}
+        env:
+          TAILSCALE_TEST_AUTH_KEY: ${{ secrets.TAILSCALE_TEST_AUTH_KEY }}
