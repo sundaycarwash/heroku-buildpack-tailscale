@@ -10,6 +10,6 @@ RUN env -i PATH=$PATH HOME=$HOME STACK=$STACK /buildpack/bin/detect /app
 RUN env -i PATH=$PATH HOME=$HOME STACK=$STACK /buildpack/bin/compile /app /cache /env
 
 # Install test utililties
-RUN apt-get update && apt-get install -y curl
+RUN apt-get update || true && apt-get install -y curl
 
 WORKDIR /app

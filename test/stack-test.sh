@@ -22,7 +22,7 @@ docker build \
   -t "$OUTPUT_IMAGE" \
   .
 
-LOAD_ENV_VARS="source .profile.d/heroku-tailscale-buildpack.sh"
+LOAD_ENV_VARS="source .profile.d/heroku-buildpack-tailscale.sh"
 TEST_COMMAND="$LOAD_ENV_VARS && heroku-tailscale-test.sh"
 
 docker run \

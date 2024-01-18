@@ -1,11 +1,5 @@
 [buildpack]
-name = "heroku-tailscale-buildpack"
+name = "heroku-buildpack-tailscale"
 
-    [publish.Ignore]
-    files = [
-        ".github/",
-        "test/",
-        ".gitignore",
-        "Dockerfile",
-        "run_tests.sh",
-    ]
+[publish.Ignore]
+files = [".github/", "test/", ".gitignore", "Dockerfile", "run_tests.sh"]
