@@ -32,7 +32,7 @@ else
   fi
   log "Using Tailscale hostname=$tailscale_hostname"
 
-  nohup tailscaled -verbose ${TAILSCALED_VERBOSE:-0} --tun=userspace-networking --socks5-server=localhost:1055 > /dev/null &
+  tailscaled -verbose ${TAILSCALED_VERBOSE:-0} --tun=userspace-networking --socks5-server=localhost:1055 > /dev/null &
   until tailscale up \
     --authkey=${TAILSCALE_AUTH_KEY} \
     --hostname="$tailscale_hostname" \
