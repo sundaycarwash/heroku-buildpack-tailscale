@@ -16,19 +16,20 @@ if [ -z "$TAILSCALE_AUTH_KEY" ]; then
 else
   log "Starting Tailscale"
 
+  # Only use the first 8 characters of the commit sha.
+  # Swap the . and _ in the dyno with a - since tailscale doesn't
+  # allow for periods.
+  DYNO=${DYNO//./-}
+  DYNO=${DYNO//_/-}
+
   if [ -z "$TAILSCALE_HOSTNAME" ]; then
     if [ -z "$HEROKU_APP_NAME" ]; then
       tailscale_hostname=$(hostname)
     else
-      # Only use the first 8 characters of the commit sha.
-      # Swap the . and _ in the dyno with a - since tailscale doesn't
-      # allow for periods.
-      DYNO=${DYNO//./-}
-      DYNO=${DYNO//_/-}
       tailscale_hostname=${HEROKU_SLUG_COMMIT:0:8}"-$DYNO-$HEROKU_APP_NAME"
     fi
   else
-    tailscale_hostname="$TAILSCALE_HOSTNAME-${HEROKU_SLUG_COMMIT:0:8}"
+    tailscale_hostname="$TAILSCALE_HOSTNAME-$HEROKU_RELEASE_VERSION-$DYNO"
   fi
   log "Using Tailscale hostname=$tailscale_hostname"
 
