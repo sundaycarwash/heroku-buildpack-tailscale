@@ -28,7 +28,7 @@ else
       tailscale_hostname=${HEROKU_SLUG_COMMIT:0:8}"-$DYNO-$HEROKU_APP_NAME"
     fi
   else
-    tailscale_hostname="$TAILSCALE_HOSTNAME"
+    tailscale_hostname="$TAILSCALE_HOSTNAME-${HEROKU_SLUG_COMMIT:0:8}"
   fi
   log "Using Tailscale hostname=$tailscale_hostname"
 
