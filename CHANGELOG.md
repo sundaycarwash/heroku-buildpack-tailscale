@@ -1,6 +1,7 @@
 ## Unreleased
 
 - Update README.
+- Upgrade Tailscale (1.76.6)
 
 ## 1.1.2
 
