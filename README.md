@@ -71,7 +71,11 @@ The following settings are available for configuration via environment variables
   enabled, it defaults to `[commit]-[dyno]-[appname]`.
 - `TAILSCALE_SHIELDS_UP"` - Block incoming connections from other devices on your Tailscale
   network. Useful for personal devices that only make outgoing connections. Defaults to off.
-- `TAILSCALED_VERBOSE` - Controls verbosity for the tailscaled command. Defaults to 0.
+- ``TAILSCALED_VERBOSE`` - Controls verbosity for the tailscaled command. Defaults to 0.
+- ``TAILSCALE_TIMEOUT`` - Maximum amount of time to wait for the Tailscale service to initialize.
+  The duration can be any value parseable by time.ParseDuration(). Defaults to 0s, which blocks
+  forever. Heroku will timeout after its boot timeout is reached (60s by default) and the dyno
+  will crash if the value of this variable is greater.
 
 The following settings are for the compile process for the buildpack. If you change these, you must
 trigger a new build to see the change. Simply changing the environment variables in Heroku will not
