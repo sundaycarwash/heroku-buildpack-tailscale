@@ -36,7 +36,7 @@ shopt -s nullglob
 
 export_env_dir "$ENV_DIR"
 
-: ${TAILSCALE_VERSION:=1.76.6} && echo "-----> Using Tailscale version: $TAILSCALE_VERSION"
+: ${TAILSCALE_VERSION:=1.80.0} && echo "-----> Using Tailscale version: $TAILSCALE_VERSION"
 
 mkdir -p "$BUILD_DIR/.heroku/tailscale/bin"
 export PATH="$BUILD_DIR/.heroku/tailscale/bin:$PATH"
