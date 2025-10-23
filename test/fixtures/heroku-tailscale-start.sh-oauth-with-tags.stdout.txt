@@ -1,0 +1,15 @@
+-----> Starting Tailscale
+-----> Detected OAuth client secret
+-----> Using OAuth client with ephemeral=true and preauthorized=true
+-----> Using Tailscale hostname=oauth-test--
+>>> mocked tailscaled -verbose 1 call <<<
+>>> mocked tailscale call
+--authkey=tskey-client-oauth-test?ephemeral=true&preauthorized=true
+--hostname=oauth-test--
+--accept-dns=false
+--accept-routes=false
+--advertise-exit-node=false
+--shields-up=false
+--advertise-tags=tag:heroku
+<<<
+-----> Tailscale started
