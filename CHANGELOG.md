@@ -1,6 +1,12 @@
 ## Unreleased
 
-- Update README.
+- **Add OAuth client support**: The buildpack now supports Tailscale OAuth clients as an authentication method. OAuth client secrets never expire (unlike traditional auth keys which expire every 90 days), making them the recommended approach for Heroku deployments. When using OAuth clients:
+  - Set `TAILSCALE_AUTH_KEY` to your OAuth client secret (starts with `tskey-client-`)
+  - Set `TAILSCALE_ADVERTISE_TAGS` to match the tags configured in your OAuth client (required)
+  - The buildpack automatically configures `ephemeral=true` and `preauthorized=true` for Heroku's dyno lifecycle
+  - Traditional auth keys remain fully supported for backward compatibility
+- **Fix**: `TAILSCALE_ADVERTISE_TAGS` now properly passed to `tailscale up` command
+- Update README with OAuth client setup instructions
 - Upgrade Tailscale (1.76.6)
 
 ## 1.1.2
